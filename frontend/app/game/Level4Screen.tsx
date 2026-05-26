@@ -135,11 +135,7 @@ export default function Level4Screen() {
               padding: 16,
               borderWidth: 3,
               borderColor: '#8B5CF6',
-              shadowColor: '#8B5CF6',
-              shadowOffset: { width: 0, height: 4 },
-              shadowOpacity: 0.2,
-              shadowRadius: 8,
-              elevation: 6,
+              boxShadow: '0px 4px 8px 0px #8B5CF633',
             }}>
             <Text style={{ fontSize: 16, fontWeight: '700', color: '#6B7280', marginBottom: 6, textAlign: 'center' }}>
               🔍 Hint:
@@ -162,11 +158,7 @@ export default function Level4Screen() {
                 ? '#22C55E'
                 : '#EF4444'
               : '#8B5CF6',
-            shadowColor: '#8B5CF6',
-            shadowOffset: { width: 0, height: 6 },
-            shadowOpacity: 0.15,
-            shadowRadius: 12,
-            elevation: 8,
+            boxShadow: '0px 6px 12px 0px #8B5CF626',
           }}>
           <Text style={{ fontSize: 13, fontWeight: '700', color: '#6B7280', marginBottom: 10, textAlign: 'center' }}>
             Complete the sentence:
@@ -278,11 +270,7 @@ export default function Level4Screen() {
                     : '#E5E7EB',
                   minWidth: '44%',
                   alignItems: 'center',
-                  shadowColor: '#8B5CF6',
-                  shadowOffset: { width: 0, height: 2 },
-                  shadowOpacity: 0.1,
-                  shadowRadius: 4,
-                  elevation: 3,
+                  boxShadow: '0px 2px 4px 0px #8B5CF61A',
                 }}>
                 <Text
                   style={{

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { View, Text, Animated, Easing } from 'react-native';
+import { View, Text, Animated, Easing, Platform } from 'react-native';
 import { useGameStore } from '@/store/gameStore';
 
 interface GuideAvatarProps {
@@ -21,13 +21,13 @@ export default function GuideAvatar({ message, size = 'md' }: GuideAvatarProps) 
           toValue: -8,
           duration: 600,
           easing: Easing.inOut(Easing.sin),
-          useNativeDriver: true,
+          useNativeDriver: Platform.OS !== 'web',
         }),
         Animated.timing(bounceAnim, {
           toValue: 0,
           duration: 600,
           easing: Easing.inOut(Easing.sin),
-          useNativeDriver: true,
+          useNativeDriver: Platform.OS !== 'web',
         }),
       ])
     ).start();
@@ -38,13 +38,13 @@ export default function GuideAvatar({ message, size = 'md' }: GuideAvatarProps) 
           toValue: 1.08,
           duration: 800,
           easing: Easing.inOut(Easing.sin),
-          useNativeDriver: true,
+          useNativeDriver: Platform.OS !== 'web',
         }),
         Animated.timing(scaleAnim, {
           toValue: 1,
           duration: 800,
           easing: Easing.inOut(Easing.sin),
-          useNativeDriver: true,
+          useNativeDriver: Platform.OS !== 'web',
         }),
       ])
     ).start();
@@ -67,11 +67,7 @@ export default function GuideAvatar({ message, size = 'md' }: GuideAvatarProps) 
             borderColor: '#F59E0B',
             alignItems: 'center',
             justifyContent: 'center',
-            shadowColor: '#F59E0B',
-            shadowOffset: { width: 0, height: 2 },
-            shadowOpacity: 0.4,
-            shadowRadius: 6,
-            elevation: 6,
+            boxShadow: '0px 2px 6px 0px #F59E0B66',
           }}>
           <Text style={{ fontSize }}>{size === 'sm' ? '🦉' : '🦉'}</Text>
         </View>
@@ -88,11 +84,7 @@ export default function GuideAvatar({ message, size = 'md' }: GuideAvatarProps) 
             borderWidth: 2,
             borderColor: '#F59E0B',
             maxWidth: 260,
-            shadowColor: '#000',
-            shadowOffset: { width: 0, height: 2 },
-            shadowOpacity: 0.1,
-            shadowRadius: 4,
-            elevation: 3,
+            boxShadow: '0px 2px 4px 0px #0000001A',
           }}>
           <Text
             style={{

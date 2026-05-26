@@ -145,11 +145,7 @@ export default function LevelIntroScreen() {
           marginTop: 24,
           borderWidth: 3,
           borderColor: info.color,
-          shadowColor: info.color,
-          shadowOffset: { width: 0, height: 8 },
-          shadowOpacity: 0.25,
-          shadowRadius: 16,
-          elevation: 10,
+          boxShadow: `0px 8px 16px 0px ${info.color}40`,
         }}>
         <Text style={{ fontSize: 60 }}>{info.icon}</Text>
         <View
@@ -238,11 +234,7 @@ export default function LevelIntroScreen() {
             paddingHorizontal: 48,
             paddingVertical: 16,
             borderRadius: 28,
-            shadowColor: info.color,
-            shadowOffset: { width: 0, height: 6 },
-            shadowOpacity: 0.5,
-            shadowRadius: 10,
-            elevation: 8,
+            boxShadow: `0px 6px 10px 0px ${info.color}80`,
           }}>
           <Text style={{ color: 'white', fontWeight: '900', fontSize: 20 }}>
             🚀 Start Level {currentLevel}

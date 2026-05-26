@@ -97,9 +97,7 @@ export default function SplashScreen() {
             color: '#FDE68A',
             textAlign: 'center',
             letterSpacing: 1,
-            textShadowColor: '#F59E0B',
-            textShadowOffset: { width: 0, height: 2 },
-            textShadowRadius: 8,
+            textShadow: '0px 2px 8px #F59E0B',
           }}>
           WordQuest
         </Text>
@@ -173,11 +171,7 @@ export default function SplashScreen() {
             paddingHorizontal: 48,
             paddingVertical: 18,
             borderRadius: 32,
-            shadowColor: '#FBBF24',
-            shadowOffset: { width: 0, height: 6 },
-            shadowOpacity: 0.6,
-            shadowRadius: 12,
-            elevation: 10,
+            boxShadow: '0px 6px 12px 0px #FBBF2499',
             borderWidth: 3,
             borderColor: '#F59E0B',
           }}>

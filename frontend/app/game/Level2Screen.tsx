@@ -154,11 +154,7 @@ export default function Level2Screen() {
             borderWidth: 3,
             borderColor: target.color,
             marginBottom: 24,
-            shadowColor: target.color,
-            shadowOffset: { width: 0, height: 6 },
-            shadowOpacity: 0.2,
-            shadowRadius: 12,
-            elevation: 8,
+            boxShadow: `0px 6px 12px 0px ${target.color}33`,
           }}>
           <Text style={{ fontSize: 80 }}>{target.emoji}</Text>
           <Text
@@ -222,11 +218,7 @@ export default function Level2Screen() {
                 backgroundColor: isListening ? '#EF4444' : '#3B82F6',
                 alignItems: 'center',
                 justifyContent: 'center',
-                shadowColor: isListening ? '#EF4444' : '#3B82F6',
-                shadowOffset: { width: 0, height: 6 },
-                shadowOpacity: 0.5,
-                shadowRadius: 12,
-                elevation: 10,
+                boxShadow: `0px 6px 12px 0px ${isListening ? '#EF4444' : '#3B82F6'}80`,
                 borderWidth: 4,
                 borderColor: isListening ? '#B91C1C' : '#1D4ED8',
               }}>

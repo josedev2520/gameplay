@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from 'react';
-import { View, Text, TouchableOpacity, Animated } from 'react-native';
+import { View, Text, TouchableOpacity, Animated, Platform } from 'react-native';
 import { useGameStore } from '@/store/gameStore';
 
 interface GameHUDProps {
@@ -23,12 +23,12 @@ export default function GameHUD({ onBack }: GameHUDProps) {
         Animated.timing(scaleAnim, {
           toValue: 1.4,
           duration: 150,
-          useNativeDriver: true,
+          useNativeDriver: Platform.OS !== 'web',
         }),
         Animated.timing(scaleAnim, {
           toValue: 1,
           duration: 150,
-          useNativeDriver: true,
+          useNativeDriver: Platform.OS !== 'web',
         }),
       ]).start();
       prevPoints.current = points;
@@ -46,11 +46,7 @@ export default function GameHUD({ onBack }: GameHUDProps) {
         backgroundColor: 'rgba(255,255,255,0.92)',
         borderBottomWidth: 2,
         borderBottomColor: '#FDE68A',
-        shadowColor: '#000',
-        shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.08,
-        shadowRadius: 4,
-        elevation: 4,
+        boxShadow: '0px 2px 4px 0px #00000014',
       }}>
       {/* Back button */}
       <TouchableOpacity

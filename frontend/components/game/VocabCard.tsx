@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from 'react';
-import { View, Text, TouchableOpacity, Animated, Easing } from 'react-native';
+import { View, Text, TouchableOpacity, Animated, Easing, Platform } from 'react-native';
 import { VocabWord } from '@/store/gameStore';
 
 interface VocabCardProps {
@@ -34,11 +34,11 @@ export default function VocabCard({
   useEffect(() => {
     if (correct) {
       Animated.sequence([
-        Animated.timing(scaleAnim, { toValue: 1.25, duration: 150, useNativeDriver: true }),
+        Animated.timing(scaleAnim, { toValue: 1.25, duration: 150, useNativeDriver: Platform.OS !== 'web' }),
         Animated.spring(scaleAnim, {
           toValue: 1,
           friction: 4,
-          useNativeDriver: true,
+          useNativeDriver: Platform.OS !== 'web',
         }),
       ]).start();
 
@@ -53,10 +53,10 @@ export default function VocabCard({
 
     if (incorrect) {
       Animated.sequence([
-        Animated.timing(rotateAnim, { toValue: -8, duration: 80, useNativeDriver: true }),
-        Animated.timing(rotateAnim, { toValue: 8, duration: 80, useNativeDriver: true }),
-        Animated.timing(rotateAnim, { toValue: -8, duration: 80, useNativeDriver: true }),
-        Animated.timing(rotateAnim, { toValue: 0, duration: 80, useNativeDriver: true }),
+        Animated.timing(rotateAnim, { toValue: -8, duration: 80, useNativeDriver: Platform.OS !== 'web' }),
+        Animated.timing(rotateAnim, { toValue: 8, duration: 80, useNativeDriver: Platform.OS !== 'web' }),
+        Animated.timing(rotateAnim, { toValue: -8, duration: 80, useNativeDriver: Platform.OS !== 'web' }),
+        Animated.timing(rotateAnim, { toValue: 0, duration: 80, useNativeDriver: Platform.OS !== 'web' }),
       ]).start();
     }
   }, [correct, incorrect]);
@@ -95,11 +95,7 @@ export default function VocabCard({
           borderColor,
           alignItems: 'center',
           justifyContent: 'center',
-          shadowColor: word.color,
-          shadowOffset: { width: 0, height: 4 },
-          shadowOpacity: 0.3,
-          shadowRadius: 8,
-          elevation: 6,
+          boxShadow: `0px 4px 8px 0px ${word.color}4D`,
           gap: 6,
         }}>
         <Text style={{ fontSize: emojiSize }}>{word.emoji}</Text>
