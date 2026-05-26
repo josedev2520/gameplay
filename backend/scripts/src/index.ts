@@ -14,7 +14,7 @@ app.use(
 );
 
 app.get('/', (c) => {
-  return c.text('Hello teacher!');
+  return c.text('Hello 👩‍🏫 Teacher!');
 });
 
 export default {
