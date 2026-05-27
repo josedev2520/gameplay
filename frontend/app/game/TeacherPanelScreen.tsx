@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { ArrowLeft, BookOpen, ListChecks, BadgeCheck, Gauge, Trophy, BarChart4, Book, Lightbulb } from 'lucide-react-native';
 import { View, Text, TouchableOpacity, ScrollView } from 'react-native';
 import { useGameStore, CATEGORY_LABELS, VOCABULARY, Category } from '@/store/gameStore';
 import ProgressBar from '@/components/game/ProgressBar';
@@ -105,12 +106,15 @@ export default function TeacherPanelScreen() {
           gap: 12,
         }}>
         <TouchableOpacity onPress={() => setScreen('home')}>
-          <Text style={{ color: '#A5B4FC', fontSize: 22 }}>⬅️</Text>
+          <ArrowLeft color="#A5B4FC" size={24} />
         </TouchableOpacity>
         <View>
-          <Text style={{ color: 'white', fontWeight: '900', fontSize: 20 }}>
-            👩‍🏫 Teacher Panel
-          </Text>
+          <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
+            <BookOpen color="#A5B4FC" size={24} />
+            <Text style={{ color: 'white', fontWeight: '900', fontSize: 20 }}>
+              Teacher Panel
+            </Text>
+          </View>
           <Text style={{ color: '#A5B4FC', fontSize: 12 }}>
             Analytics & Pedagogical Guide
           </Text>
@@ -144,7 +148,22 @@ export default function TeacherPanelScreen() {
                 fontSize: 13,
                 color: activeTab === tab ? '#5B21B6' : '#9CA3AF',
               }}>
-              {tab === 'overview' ? '📊 Analytics' : tab === 'vocab' ? '📖 Vocabulary' : '🦉 Guide Tips'}
+              {tab === 'overview' ? (
+                <View style={{ flexDirection: 'row', alignItems: 'center', gap: 4 }}>
+                  <BarChart4 color={activeTab === 'overview' ? '#5B21B6' : '#9CA3AF'} size={18} />
+                  <Text style={{ color: activeTab === 'overview' ? '#5B21B6' : '#9CA3AF' }}>Analytics</Text>
+                </View>
+              ) : tab === 'vocab' ? (
+                <View style={{ flexDirection: 'row', alignItems: 'center', gap: 4 }}>
+                  <Book color={activeTab === 'vocab' ? '#5B21B6' : '#9CA3AF'} size={18} />
+                  <Text style={{ color: activeTab === 'vocab' ? '#5B21B6' : '#9CA3AF' }}>Vocabulary</Text>
+                </View>
+              ) : (
+                <View style={{ flexDirection: 'row', alignItems: 'center', gap: 4 }}>
+                  <Lightbulb color={activeTab === 'guide' ? '#5B21B6' : '#9CA3AF'} size={18} />
+                  <Text style={{ color: activeTab === 'guide' ? '#5B21B6' : '#9CA3AF' }}>Guide Tips</Text>
+                </View>
+              )}
             </Text>
           </TouchableOpacity>
         ))}
@@ -156,10 +175,10 @@ export default function TeacherPanelScreen() {
             {/* Stats summary */}
             <View style={{ flexDirection: 'row', gap: 10, marginBottom: 16 }}>
               {[
-                { label: 'Total Answers', value: total, icon: '📝', color: '#3B82F6' },
-                { label: 'Correct', value: correct, icon: '✅', color: '#22C55E' },
-                { label: 'Accuracy', value: `${accuracy}%`, icon: '🎯', color: '#8B5CF6' },
-                { label: 'Points', value: points, icon: '⭐', color: '#F59E0B' },
+                { label: 'Total Answers', value: total, icon: <ListChecks color="#3B82F6" size={24} />, color: '#3B82F6' },
+                { label: 'Correct', value: correct, icon: <BadgeCheck color="#22C55E" size={24} />, color: '#22C55E' },
+                { label: 'Accuracy', value: `${accuracy}%`, icon: <Gauge color="#8B5CF6" size={24} />, color: '#8B5CF6' },
+                { label: 'Points', value: points, icon: <Trophy color="#F59E0B" size={24} />, color: '#F59E0B' },
               ].map((stat) => (
                 <View
                   key={stat.label}
@@ -177,7 +196,7 @@ export default function TeacherPanelScreen() {
                     shadowRadius: 4,
                     elevation: 2,
                   }}>
-                  <Text style={{ fontSize: 20 }}>{stat.icon}</Text>
+                  {stat.icon}
                   <Text style={{ fontSize: 18, fontWeight: '900', color: stat.color }}>
                     {stat.value}
                   </Text>

@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 
+
 // ─── Vocabulary Data ─────────────────────────────────────────────────────────
 
 export type Category = 'colors' | 'animals' | 'fruits' | 'classroom' | 'body' | 'actions';

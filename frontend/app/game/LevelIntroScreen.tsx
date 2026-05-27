@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import { View, Text, TouchableOpacity, Animated, ScrollView } from 'react-native';
 import { useGameStore, CATEGORY_LABELS, VOCABULARY, CATEGORY_BG, Category } from '@/store/gameStore';
 import GuideAvatar from '@/components/game/GuideAvatar';
+import { ArrowLeft } from 'lucide-react-native';
 
 const LEVEL_INFO = [
   {
@@ -109,9 +110,21 @@ export default function LevelIntroScreen() {
       {/* Back */}
       <TouchableOpacity
         onPress={() => setScreen('home')}
-        style={{ alignSelf: 'flex-start', marginBottom: 12 }}>
-        <Text style={{ color: '#6B7280', fontSize: 14, fontWeight: '600' }}>⬅️ Back</Text>
+        style={{ 
+          alignSelf: 'flex-start', 
+          marginBottom: 12,
+          backgroundColor: '#cad3ff62',
+          borderRadius: 20,
+          width: 36,
+          height: 36,
+          alignItems: 'center',
+          justifyContent: 'center',
+          borderWidth: 2,
+          borderColor: '#A5B4FC',
+        }}>
+        <ArrowLeft color="#A5B4FC" size={24} />
       </TouchableOpacity>
+
 
       {/* Category badge */}
       <View

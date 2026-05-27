@@ -1,4 +1,5 @@
 import React, { useRef, useEffect } from 'react';
+import { ArrowLeft } from 'lucide-react-native';
 import { View, Text, TouchableOpacity, Animated, Platform } from 'react-native';
 import { useGameStore } from '@/store/gameStore';
 
@@ -61,7 +62,7 @@ export default function GameHUD({ onBack }: GameHUDProps) {
           borderWidth: 2,
           borderColor: '#F59E0B',
         }}>
-        <Text style={{ fontSize: 16 }}>⬅️</Text>
+        <ArrowLeft color="#F59E0B" size={24} />
       </TouchableOpacity>
 
       {/* Level badge */}
